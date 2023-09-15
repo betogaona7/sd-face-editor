@@ -1,4 +1,10 @@
-jobs:
+name: Document undocumented code
+
+on:
+  push:
+    branches:
+      - main
+jobs: 
   code-documentation:
     runs-on: ubuntu-latest
     permissions: write-all
