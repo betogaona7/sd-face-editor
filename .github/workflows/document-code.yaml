@@ -5,12 +5,17 @@ on:
     branches:
       - main
 
-
 jobs: 
   - name: Document
-  uses: mystral-ai/devtale@hotfix/remove-new-docfiles
-  with:
-    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-    path: ${{ github.workspace }}
-    recursive: true
-    target_branch: main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Document Code
+        uses: mystral-ai/devtale@hotfix/remove-new-docfiles
+        with:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          path: ${{ github.workspace }}
+          recursive: true
+          target_branch: main
