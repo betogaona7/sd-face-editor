@@ -1,0 +1,16 @@
+name: Document undocumented code
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs: 
+  - name: Document
+  uses: mystral-ai/devtale@hotfix/remove-new-docfiles
+  with:
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    path: ${{ github.workspace }}
+    recursive: true
+    target_branch: main
