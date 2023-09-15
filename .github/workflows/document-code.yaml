@@ -1,23 +1,10 @@
-name: Document undocumented code
-
-on:
-  push:
-    branches:
-      - main
-
-jobs: 
+jobs:
   code-documentation:
     runs-on: ubuntu-latest
-
-    permissions:
-      actions: write
-      
+    permissions: write-all
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Document Code
-        uses: mystral-ai/devtale@hotfix/remove-new-docfiles
+      - name: Document
+        uses: mystral-ai/devtale@v0.1.1
         with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           path: ${{ github.workspace }}
