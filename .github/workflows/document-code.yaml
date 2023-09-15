@@ -16,6 +16,6 @@ jobs:
         uses: mystral-ai/devtale@hotfix/remove-new-docfiles
         with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          path: .
+          path: ${{ github.workspace }}
           recursive: true
           target_branch: main
